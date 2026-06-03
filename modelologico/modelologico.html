@@ -26,10 +26,10 @@ footer{text-align:center;margin-top:28px;font-size:12px;color:#3a3a42}
 <body>
 <header>
   <h1>Modelo Lógico — Sistema de Autoescola</h1>
-  <p>Schema SQL completo · 10 tabelas · todos os campos · 9 relacionamentos</p>
+  <p>Schema SQL completo · 11 tabelas · todos os campos · 9 relacionamentos</p>
 </header>
 <div class="canvas-wrap">
-<svg id="svg-erd" width="1340" height="1620" viewBox="0 0 1340 1620" role="img">
+<svg id="svg-erd" width="1380" height="1700" viewBox="0 0 1380 1700" role="img">
 <title>Modelo lógico — sistema de autoescola</title>
 <desc>ERD completo com todos os campos de cada tabela e labels de relacionamento nas linhas.</desc>
 <defs>
@@ -44,227 +44,226 @@ footer{text-align:center;margin-top:28px;font-size:12px;color:#3a3a42}
   </marker>
 </defs>
 
-<!-- ═══════════════ COLUNA 1 (x=40) ═══════════════ -->
+<!-- ═══════════════════════════════════════════════════════════
+     TABELAS
+     ═══════════════════════════════════════════════════════════ -->
 
-<!-- ── USUARIO  y=40  h=215 ── -->
-<!-- campos: id_usuario, nome, cpf, email, senha, nivel_acesso, telefone, foto_perfil, criado_em -->
+<!-- ── USUARIO  x=370 y=40  h=215 ── -->
 <g id="t-usuario">
-  <rect x="340" y="40" width="250" height="215" rx="10" fill="#1c1c26"/>
-  <rect x="340" y="40" width="250" height="215" rx="10" fill="none" stroke="#7F77DD" stroke-width="1.5"/>
-  <rect x="340" y="40" width="250" height="36" rx="10" fill="#312f72"/>
-  <rect x="340" y="64" width="250" height="12" fill="#312f72"/>
-  <text class="tbl-title" x="465" y="62" text-anchor="middle">usuario</text>
-  <line x1="340" y1="76" x2="590" y2="76" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <!-- rows: y_start=76, each row=19px, text at y_row+13 -->
-  <text class="tbl-pk"  x="353" y="95">🔑 id_usuario</text><text class="tbadge t11" x="587" y="95" text-anchor="end">PK · serial</text>
-  <line x1="340" y1="101" x2="590" y2="101" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="116">nome</text><text class="tbadge" style="fill:#555" x="587" y="116" text-anchor="end">varchar(100)</text>
-  <line x1="340" y1="122" x2="590" y2="122" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="137">cpf</text><text class="tbadge tnn" x="587" y="137" text-anchor="end">char(11) UNIQUE</text>
-  <line x1="340" y1="143" x2="590" y2="143" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="158">email</text><text class="tbadge tnn" x="587" y="158" text-anchor="end">varchar(150) UNIQUE</text>
-  <line x1="340" y1="164" x2="590" y2="164" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="179">senha</text><text class="tbadge" style="fill:#555" x="587" y="179" text-anchor="end">varchar(255)</text>
-  <line x1="340" y1="185" x2="590" y2="185" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="200">nivel_acesso</text><text class="tbadge" style="fill:#555" x="587" y="200" text-anchor="end">varchar(30)</text>
-  <line x1="340" y1="206" x2="590" y2="206" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="221">telefone</text><text class="tbadge" style="fill:#555" x="587" y="221" text-anchor="end">varchar(15)</text>
-  <line x1="340" y1="227" x2="590" y2="227" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="242">foto_perfil</text><text class="tbadge" style="fill:#555" x="587" y="242" text-anchor="end">varchar(255)</text>
-  <line x1="340" y1="248" x2="590" y2="248" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="249">criado_em</text><text class="tbadge" style="fill:#555" x="587" y="249" text-anchor="end">timestamp</text>
+  <rect x="370" y="40" width="265" height="215" rx="10" fill="#1c1c26"/>
+  <rect x="370" y="40" width="265" height="215" rx="10" fill="none" stroke="#7F77DD" stroke-width="1.5"/>
+  <rect x="370" y="40" width="265" height="36" rx="10" fill="#312f72"/>
+  <rect x="370" y="64" width="265" height="12" fill="#312f72"/>
+  <text class="tbl-title" x="502" y="62" text-anchor="middle">usuario</text>
+  <line x1="370" y1="76" x2="635" y2="76" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-pk"  x="383" y="95">🔑 usuario_id</text><text class="tbadge t11" x="632" y="95" text-anchor="end">PK · serial</text>
+  <line x1="370" y1="101" x2="635" y2="101" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="383" y="116">usuario_nome</text><text class="tbadge" style="fill:#555" x="632" y="116" text-anchor="end">varchar(100)</text>
+  <line x1="370" y1="122" x2="635" y2="122" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="383" y="137">usuario_cpf</text><text class="tbadge tnn" x="632" y="137" text-anchor="end">char(11) UNIQUE</text>
+  <line x1="370" y1="143" x2="635" y2="143" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="383" y="158">usuario_email</text><text class="tbadge tnn" x="632" y="158" text-anchor="end">varchar(150) UNIQUE</text>
+  <line x1="370" y1="164" x2="635" y2="164" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="383" y="179">usuario_senha</text><text class="tbadge" style="fill:#555" x="632" y="179" text-anchor="end">varchar(255)</text>
+  <line x1="370" y1="185" x2="635" y2="185" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="383" y="200">usuario_nivel_acesso</text><text class="tbadge" style="fill:#555" x="632" y="200" text-anchor="end">varchar(30)</text>
+  <line x1="370" y1="206" x2="635" y2="206" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="383" y="221">usuario_telefone</text><text class="tbadge" style="fill:#555" x="632" y="221" text-anchor="end">varchar(15)</text>
+  <line x1="370" y1="227" x2="635" y2="227" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="383" y="242">usuario_foto_perfil</text><text class="tbadge" style="fill:#555" x="632" y="242" text-anchor="end">varchar(255)</text>
+  <line x1="370" y1="248" x2="635" y2="248" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="383" y="249">usuario_criado_em</text><text class="tbadge" style="fill:#555" x="632" y="249" text-anchor="end">timestamp</text>
 </g>
 
-<!-- ── ALUNO  y=310  h=120 ── -->
-<!-- campos: id_usuario_aluno, data_nascimento, categoria_pretendida, status_aluno -->
+<!-- ── ALUNO  x=40 y=330  h=120 ── -->
 <g id="t-aluno">
-  <rect x="40" y="320" width="255" height="120" rx="10" fill="#1c1c26"/>
-  <rect x="40" y="320" width="255" height="120" rx="10" fill="none" stroke="#0F6E56" stroke-width="1.5"/>
-  <rect x="40" y="320" width="255" height="36" rx="10" fill="#0a3328"/>
-  <rect x="40" y="344" width="255" height="12" fill="#0a3328"/>
-  <text class="tbl-title" x="167" y="342" text-anchor="middle">aluno</text>
-  <line x1="40" y1="356" x2="295" y2="356" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-pk"  x="53" y="371">🔑 id_usuario_aluno</text><text class="tbadge t11" x="292" y="371" text-anchor="end">PK · FK</text>
-  <line x1="40" y1="377" x2="295" y2="377" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="392">data_nascimento</text><text class="tbadge" style="fill:#555" x="292" y="392" text-anchor="end">date</text>
-  <line x1="40" y1="398" x2="295" y2="398" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="413">categoria_pretendida</text><text class="tbadge" style="fill:#555" x="292" y="413" text-anchor="end">varchar(5)</text>
-  <line x1="40" y1="419" x2="295" y2="419" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="434">status_aluno</text><text class="tbadge" style="fill:#555" x="292" y="434" text-anchor="end">varchar(20)</text>
+  <rect x="40" y="330" width="265" height="120" rx="10" fill="#1c1c26"/>
+  <rect x="40" y="330" width="265" height="120" rx="10" fill="none" stroke="#0F6E56" stroke-width="1.5"/>
+  <rect x="40" y="330" width="265" height="36" rx="10" fill="#0a3328"/>
+  <rect x="40" y="354" width="265" height="12" fill="#0a3328"/>
+  <text class="tbl-title" x="172" y="352" text-anchor="middle">aluno</text>
+  <line x1="40" y1="366" x2="305" y2="366" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-pk"  x="53" y="381">🔑🔗 aluno_id</text><text class="tbadge t11" x="302" y="381" text-anchor="end">PK · FK → usuario</text>
+  <line x1="40" y1="387" x2="305" y2="387" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="402">aluno_data_nascimento</text><text class="tbadge" style="fill:#555" x="302" y="402" text-anchor="end">date</text>
+  <line x1="40" y1="408" x2="305" y2="408" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="423">aluno_categoria_pretendida</text><text class="tbadge" style="fill:#555" x="302" y="423" text-anchor="end">varchar(5)</text>
+  <line x1="40" y1="429" x2="305" y2="429" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="444">aluno_status_aluno</text><text class="tbadge" style="fill:#555" x="302" y="444" text-anchor="end">varchar(20)</text>
 </g>
 
-<!-- ── INSTRUTOR  y=320  h=120 ── -->
-<!-- campos: id_usuario_instrutor, numero_credencial, categoria_cnh, valor_aula -->
+<!-- ── INSTRUTOR  x=720 y=330  h=120 ── -->
 <g id="t-instrutor">
-  <rect x="680" y="320" width="265" height="120" rx="10" fill="#1c1c26"/>
-  <rect x="680" y="320" width="265" height="120" rx="10" fill="none" stroke="#993C1D" stroke-width="1.5"/>
-  <rect x="680" y="320" width="265" height="36" rx="10" fill="#3d1808"/>
-  <rect x="680" y="344" width="265" height="12" fill="#3d1808"/>
-  <text class="tbl-title" x="812" y="342" text-anchor="middle">instrutor</text>
-  <line x1="680" y1="356" x2="945" y2="356" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-pk"  x="693" y="371">🔑 id_usuario_instrutor</text><text class="tbadge t11" x="942" y="371" text-anchor="end">PK · FK</text>
-  <line x1="680" y1="377" x2="945" y2="377" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="392">numero_credencial</text><text class="tbadge tnn" x="942" y="392" text-anchor="end">varchar(30) UNIQUE</text>
-  <line x1="680" y1="398" x2="945" y2="398" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="413">categoria_cnh</text><text class="tbadge" style="fill:#555" x="942" y="413" text-anchor="end">varchar(5)</text>
-  <line x1="680" y1="419" x2="945" y2="419" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="434">valor_aula</text><text class="tbadge" style="fill:#555" x="942" y="434" text-anchor="end">decimal(10,2)</text>
+  <rect x="720" y="330" width="280" height="120" rx="10" fill="#1c1c26"/>
+  <rect x="720" y="330" width="280" height="120" rx="10" fill="none" stroke="#993C1D" stroke-width="1.5"/>
+  <rect x="720" y="330" width="280" height="36" rx="10" fill="#3d1808"/>
+  <rect x="720" y="354" width="280" height="12" fill="#3d1808"/>
+  <text class="tbl-title" x="860" y="352" text-anchor="middle">instrutor</text>
+  <line x1="720" y1="366" x2="1000" y2="366" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-pk"  x="733" y="381">🔑🔗 instrutor_id</text><text class="tbadge t11" x="997" y="381" text-anchor="end">PK · FK → usuario</text>
+  <line x1="720" y1="387" x2="1000" y2="387" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="733" y="402">instrutor_numero_credencial</text><text class="tbadge tnn" x="997" y="402" text-anchor="end">varchar(30) UNIQUE</text>
+  <line x1="720" y1="408" x2="1000" y2="408" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="733" y="423">instrutor_categoria_cnh</text><text class="tbadge" style="fill:#555" x="997" y="423" text-anchor="end">varchar(5)</text>
+  <line x1="720" y1="429" x2="1000" y2="429" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="733" y="444">instrutor_valor_aula</text><text class="tbadge" style="fill:#555" x="997" y="444" text-anchor="end">decimal(10,2)</text>
 </g>
 
-<!-- ── CURSO  y=510  h=120 ── -->
-<!-- campos: id_curso, titulo, carga_horaria, valor -->
-<g id="t-curso">
-  <rect x="40" y="510" width="255" height="120" rx="10" fill="#1c1c26"/>
-  <rect x="40" y="510" width="255" height="120" rx="10" fill="none" stroke="#3B6D11" stroke-width="1.5"/>
-  <rect x="40" y="510" width="255" height="36" rx="10" fill="#1a3008"/>
-  <rect x="40" y="534" width="255" height="12" fill="#1a3008"/>
-  <text class="tbl-title" x="167" y="532" text-anchor="middle">curso</text>
-  <line x1="40" y1="546" x2="295" y2="546" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-pk"  x="53" y="561">🔑 id_curso</text><text class="tbadge t11" x="292" y="561" text-anchor="end">PK · serial</text>
-  <line x1="40" y1="567" x2="295" y2="567" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="582">titulo</text><text class="tbadge" style="fill:#555" x="292" y="582" text-anchor="end">varchar(100)</text>
-  <line x1="40" y1="588" x2="295" y2="588" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="603">carga_horaria</text><text class="tbadge" style="fill:#555" x="292" y="603" text-anchor="end">int</text>
-  <line x1="40" y1="609" x2="295" y2="609" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="624">valor</text><text class="tbadge" style="fill:#555" x="292" y="624" text-anchor="end">decimal(10,2)</text>
-</g>
-
-<!-- ── SIMULADO  y=510  h=101 ── -->
-<!-- campos: id_simulado, titulo, nota_minima -->
+<!-- ── SIMULADO  x=380 y=330  h=101 ── -->
 <g id="t-simulado">
-  <rect x="380" y="510" width="245" height="101" rx="10" fill="#1c1c26"/>
-  <rect x="380" y="510" width="245" height="101" rx="10" fill="none" stroke="#534AB7" stroke-width="1.5"/>
-  <rect x="380" y="510" width="245" height="36" rx="10" fill="#21204a"/>
-  <rect x="380" y="534" width="245" height="12" fill="#21204a"/>
-  <text class="tbl-title" x="502" y="532" text-anchor="middle">simulado</text>
-  <line x1="380" y1="546" x2="625" y2="546" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-pk"  x="393" y="561">🔑 id_simulado</text><text class="tbadge t11" x="622" y="561" text-anchor="end">PK · serial</text>
-  <line x1="380" y1="567" x2="625" y2="567" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="393" y="582">titulo</text><text class="tbadge" style="fill:#555" x="622" y="582" text-anchor="end">varchar(100)</text>
-  <line x1="380" y1="588" x2="625" y2="588" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="393" y="603">nota_minima</text><text class="tbadge" style="fill:#555" x="622" y="603" text-anchor="end">decimal(5,2)</text>
+  <rect x="380" y="330" width="260" height="101" rx="10" fill="#1c1c26"/>
+  <rect x="380" y="330" width="260" height="101" rx="10" fill="none" stroke="#534AB7" stroke-width="1.5"/>
+  <rect x="380" y="330" width="260" height="36" rx="10" fill="#21204a"/>
+  <rect x="380" y="354" width="260" height="12" fill="#21204a"/>
+  <text class="tbl-title" x="510" y="352" text-anchor="middle">simulado</text>
+  <line x1="380" y1="366" x2="640" y2="366" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-pk"  x="393" y="381">🔑 simulado_id</text><text class="tbadge t11" x="637" y="381" text-anchor="end">PK · serial</text>
+  <line x1="380" y1="387" x2="640" y2="387" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="402">simulado_titulo</text><text class="tbadge" style="fill:#555" x="637" y="402" text-anchor="end">varchar(100)</text>
+  <line x1="380" y1="408" x2="640" y2="408" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="423">simulado_nota_minima</text><text class="tbadge" style="fill:#555" x="637" y="423" text-anchor="end">decimal(5,2)</text>
 </g>
 
-<!-- ── VEICULO  y=510  h=120 ── -->
-<!-- campos: id_veiculo, id_instrutor(FK), placa, marca_modelo -->
+<!-- ── CURSO  x=40 y=530  h=120 ── -->
+<g id="t-curso">
+  <rect x="40" y="530" width="265" height="120" rx="10" fill="#1c1c26"/>
+  <rect x="40" y="530" width="265" height="120" rx="10" fill="none" stroke="#3B6D11" stroke-width="1.5"/>
+  <rect x="40" y="530" width="265" height="36" rx="10" fill="#1a3008"/>
+  <rect x="40" y="554" width="265" height="12" fill="#1a3008"/>
+  <text class="tbl-title" x="172" y="552" text-anchor="middle">curso</text>
+  <line x1="40" y1="566" x2="305" y2="566" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-pk"  x="53" y="581">🔑 curso_id</text><text class="tbadge t11" x="302" y="581" text-anchor="end">PK · serial</text>
+  <line x1="40" y1="587" x2="305" y2="587" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="602">curso_titulo</text><text class="tbadge" style="fill:#555" x="302" y="602" text-anchor="end">varchar(100)</text>
+  <line x1="40" y1="608" x2="305" y2="608" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="623">curso_carga_horaria</text><text class="tbadge" style="fill:#555" x="302" y="623" text-anchor="end">int</text>
+  <line x1="40" y1="629" x2="305" y2="629" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="644">curso_valor</text><text class="tbadge" style="fill:#555" x="302" y="644" text-anchor="end">decimal(10,2)</text>
+</g>
+
+<!-- ── VEICULO  x=720 y=530  h=120 ── -->
 <g id="t-veiculo">
-  <rect x="680" y="510" width="265" height="120" rx="10" fill="#1c1c26"/>
-  <rect x="680" y="510" width="265" height="120" rx="10" fill="none" stroke="#854F0B" stroke-width="1.5"/>
-  <rect x="680" y="510" width="265" height="36" rx="10" fill="#2e1d04"/>
-  <rect x="680" y="534" width="265" height="12" fill="#2e1d04"/>
-  <text class="tbl-title" x="812" y="532" text-anchor="middle">veiculo</text>
-  <line x1="680" y1="546" x2="945" y2="546" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-pk"  x="693" y="561">🔑 id_veiculo</text><text class="tbadge t11" x="942" y="561" text-anchor="end">PK · serial</text>
-  <line x1="680" y1="567" x2="945" y2="567" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tbl-fk"  x="693" y="582">🔗 id_instrutor</text><text class="tbadge tnn" x="942" y="582" text-anchor="end">FK</text>
-  <line x1="680" y1="588" x2="945" y2="588" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="603">placa</text><text class="tbadge tnn" x="942" y="603" text-anchor="end">char(7) UNIQUE</text>
-  <line x1="680" y1="609" x2="945" y2="609" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="624">marca_modelo</text><text class="tbadge" style="fill:#555" x="942" y="624" text-anchor="end">varchar(100)</text>
+  <rect x="720" y="530" width="280" height="120" rx="10" fill="#1c1c26"/>
+  <rect x="720" y="530" width="280" height="120" rx="10" fill="none" stroke="#854F0B" stroke-width="1.5"/>
+  <rect x="720" y="530" width="280" height="36" rx="10" fill="#2e1d04"/>
+  <rect x="720" y="554" width="280" height="12" fill="#2e1d04"/>
+  <text class="tbl-title" x="860" y="552" text-anchor="middle">veiculo</text>
+  <line x1="720" y1="566" x2="1000" y2="566" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-pk"  x="733" y="581">🔑 veiculo_id</text><text class="tbadge t11" x="997" y="581" text-anchor="end">PK · serial</text>
+  <line x1="720" y1="587" x2="1000" y2="587" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tbl-fk"  x="733" y="602">🔗 instrutor_id</text><text class="tbadge tnn" x="997" y="602" text-anchor="end">FK → instrutor</text>
+  <line x1="720" y1="608" x2="1000" y2="608" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="733" y="623">veiculo_placa</text><text class="tbadge tnn" x="997" y="623" text-anchor="end">char(7) UNIQUE</text>
+  <line x1="720" y1="629" x2="1000" y2="629" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="733" y="644">veiculo_marca_modelo</text><text class="tbadge" style="fill:#555" x="997" y="644" text-anchor="end">varchar(100)</text>
 </g>
 
-<!-- ── ALUNO_CURSO  y=700  h=101 ── -->
-<!-- campos: id_aluno(PK/FK), id_curso(PK/FK), data_matricula -->
+<!-- ── ALUNO_CURSO  x=40 y=740  h=101 ── -->
 <g id="t-aluno-curso">
-  <rect x="40" y="700" width="255" height="101" rx="10" fill="#1c1c26"/>
-  <rect x="40" y="700" width="255" height="101" rx="10" fill="none" stroke="#888780" stroke-width="1.5" stroke-dasharray="6 3"/>
-  <rect x="40" y="700" width="255" height="36" rx="10" fill="#232320"/>
-  <rect x="40" y="724" width="255" height="12" fill="#232320"/>
-  <text class="tbl-title" x="167" y="722" text-anchor="middle">aluno_curso <tspan style="font-size:10px;fill:#6b6a63">(N:N)</tspan></text>
-  <line x1="40" y1="736" x2="295" y2="736" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-fk"  x="53" y="751">🔗 id_aluno</text><text class="tbadge tnn" x="292" y="751" text-anchor="end">PK · FK → aluno</text>
-  <line x1="40" y1="757" x2="295" y2="757" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tbl-fk"  x="53" y="772">🔗 id_curso</text><text class="tbadge tnn" x="292" y="772" text-anchor="end">PK · FK → curso</text>
-  <line x1="40" y1="778" x2="295" y2="778" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="793">data_matricula</text><text class="tbadge" style="fill:#555" x="292" y="793" text-anchor="end">timestamp</text>
+  <rect x="40" y="740" width="265" height="101" rx="10" fill="#1c1c26"/>
+  <rect x="40" y="740" width="265" height="101" rx="10" fill="none" stroke="#888780" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <rect x="40" y="740" width="265" height="36" rx="10" fill="#232320"/>
+  <rect x="40" y="764" width="265" height="12" fill="#232320"/>
+  <text class="tbl-title" x="172" y="762" text-anchor="middle">aluno_curso <tspan style="font-size:10px;fill:#6b6a63">(N:N)</tspan></text>
+  <line x1="40" y1="776" x2="305" y2="776" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-fk"  x="53" y="791">🔗 aluno_id</text><text class="tbadge tnn" x="302" y="791" text-anchor="end">PK · FK → aluno</text>
+  <line x1="40" y1="797" x2="305" y2="797" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tbl-fk"  x="53" y="812">🔗 curso_id</text><text class="tbadge tnn" x="302" y="812" text-anchor="end">PK · FK → curso</text>
+  <line x1="40" y1="818" x2="305" y2="818" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="833">aluno_curso_data_matricula</text><text class="tbadge" style="fill:#555" x="302" y="833" text-anchor="end">timestamp</text>
 </g>
 
-<!-- ── ALUNO_SIMULADO  y=700  h=120 ── -->
-<!-- campos: id_aluno(PK/FK), id_simulado(PK/FK), nota_obtida, data_realizacao -->
+<!-- ── ALUNO_SIMULADO  x=380 y=530  h=120 ── -->
 <g id="t-aluno-simulado">
-  <rect x="340" y="700" width="275" height="120" rx="10" fill="#1c1c26"/>
-  <rect x="340" y="700" width="275" height="120" rx="10" fill="none" stroke="#888780" stroke-width="1.5" stroke-dasharray="6 3"/>
-  <rect x="340" y="700" width="275" height="36" rx="10" fill="#232320"/>
-  <rect x="340" y="724" width="275" height="12" fill="#232320"/>
-  <text class="tbl-title" x="477" y="722" text-anchor="middle">aluno_simulado <tspan style="font-size:10px;fill:#6b6a63">(N:N)</tspan></text>
-  <line x1="340" y1="736" x2="615" y2="736" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-fk"  x="353" y="751">🔗 id_aluno</text><text class="tbadge tnn" x="612" y="751" text-anchor="end">PK · FK → aluno</text>
-  <line x1="340" y1="757" x2="615" y2="757" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tbl-fk"  x="353" y="772">🔗 id_simulado</text><text class="tbadge tnn" x="612" y="772" text-anchor="end">PK · FK → simulado</text>
-  <line x1="340" y1="778" x2="615" y2="778" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="793">nota_obtida</text><text class="tbadge" style="fill:#555" x="612" y="793" text-anchor="end">decimal(5,2)</text>
-  <line x1="340" y1="799" x2="615" y2="799" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="353" y="814">data_realizacao</text><text class="tbadge" style="fill:#555" x="612" y="814" text-anchor="end">timestamp</text>
+  <rect x="380" y="530" width="280" height="120" rx="10" fill="#1c1c26"/>
+  <rect x="380" y="530" width="280" height="120" rx="10" fill="none" stroke="#888780" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <rect x="380" y="530" width="280" height="36" rx="10" fill="#232320"/>
+  <rect x="380" y="554" width="280" height="12" fill="#232320"/>
+  <text class="tbl-title" x="520" y="552" text-anchor="middle">aluno_simulado <tspan style="font-size:10px;fill:#6b6a63">(N:N)</tspan></text>
+  <line x1="380" y1="566" x2="660" y2="566" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-fk"  x="393" y="581">🔗 aluno_id</text><text class="tbadge tnn" x="657" y="581" text-anchor="end">PK · FK → aluno</text>
+  <line x1="380" y1="587" x2="660" y2="587" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tbl-fk"  x="393" y="602">🔗 simulado_id</text><text class="tbadge tnn" x="657" y="602" text-anchor="end">PK · FK → simulado</text>
+  <line x1="380" y1="608" x2="660" y2="608" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="623">aluno_simulado_nota_obtida</text><text class="tbadge" style="fill:#555" x="657" y="623" text-anchor="end">decimal(5,2)</text>
+  <line x1="380" y1="629" x2="660" y2="629" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="644">aluno_simulado_data_realizacao</text><text class="tbadge" style="fill:#555" x="657" y="644" text-anchor="end">timestamp</text>
 </g>
 
-<!-- ── QUESTAO  y=700  h=215 ── -->
-<!-- campos: id_questao, id_simulado(FK), enunciado, alt_a, alt_b, alt_c, alt_d, letra_correta, categoria -->
+<!-- ── QUESTAO  x=380 y=740  h=215 ── -->
 <g id="t-questao">
-  <rect x="680" y="700" width="280" height="215" rx="10" fill="#1c1c26"/>
-  <rect x="680" y="700" width="280" height="215" rx="10" fill="none" stroke="#633806" stroke-width="1.5"/>
-  <rect x="680" y="700" width="280" height="36" rx="10" fill="#271602"/>
-  <rect x="680" y="724" width="280" height="12" fill="#271602"/>
-  <text class="tbl-title" x="820" y="722" text-anchor="middle">questao</text>
-  <line x1="680" y1="736" x2="960" y2="736" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-pk"  x="693" y="751">🔑 id_questao</text><text class="tbadge t11" x="957" y="751" text-anchor="end">PK · serial</text>
-  <line x1="680" y1="757" x2="960" y2="757" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tbl-fk"  x="693" y="772">🔗 id_simulado</text><text class="tbadge tnn" x="957" y="772" text-anchor="end">FK · CASCADE</text>
-  <line x1="680" y1="778" x2="960" y2="778" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="793">enunciado</text><text class="tbadge" style="fill:#555" x="957" y="793" text-anchor="end">text</text>
-  <line x1="680" y1="799" x2="960" y2="799" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="814">alternativa_a</text><text class="tbadge" style="fill:#555" x="957" y="814" text-anchor="end">text</text>
-  <line x1="680" y1="820" x2="960" y2="820" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="835">alternativa_b</text><text class="tbadge" style="fill:#555" x="957" y="835" text-anchor="end">text</text>
-  <line x1="680" y1="841" x2="960" y2="841" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="856">alternativa_c</text><text class="tbadge" style="fill:#555" x="957" y="856" text-anchor="end">text</text>
-  <line x1="680" y1="862" x2="960" y2="862" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="877">alternativa_d</text><text class="tbadge" style="fill:#555" x="957" y="877" text-anchor="end">text</text>
-  <line x1="680" y1="883" x2="960" y2="883" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="898">letra_correta</text><text class="tbadge" style="fill:#555" x="957" y="898" text-anchor="end">char(1) A|B|C|D</text>
-  <line x1="680" y1="904" x2="960" y2="904" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="693" y="919">categoria</text><text class="tbadge" style="fill:#555" x="957" y="919" text-anchor="end">varchar(50)</text>
+  <rect x="380" y="740" width="280" height="215" rx="10" fill="#1c1c26"/>
+  <rect x="380" y="740" width="280" height="215" rx="10" fill="none" stroke="#633806" stroke-width="1.5"/>
+  <rect x="380" y="740" width="280" height="36" rx="10" fill="#271602"/>
+  <rect x="380" y="764" width="280" height="12" fill="#271602"/>
+  <text class="tbl-title" x="520" y="762" text-anchor="middle">questao</text>
+  <line x1="380" y1="776" x2="660" y2="776" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-pk"  x="393" y="791">🔑 questao_id</text><text class="tbadge t11" x="657" y="791" text-anchor="end">PK · serial</text>
+  <line x1="380" y1="797" x2="660" y2="797" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tbl-fk"  x="393" y="812">🔗 simulado_id</text><text class="tbadge tnn" x="657" y="812" text-anchor="end">FK · CASCADE</text>
+  <line x1="380" y1="818" x2="660" y2="818" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="833">questao_enunciado</text><text class="tbadge" style="fill:#555" x="657" y="833" text-anchor="end">text</text>
+  <line x1="380" y1="839" x2="660" y2="839" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="854">questao_alternativa_a</text><text class="tbadge" style="fill:#555" x="657" y="854" text-anchor="end">text</text>
+  <line x1="380" y1="860" x2="660" y2="860" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="875">questao_alternativa_b</text><text class="tbadge" style="fill:#555" x="657" y="875" text-anchor="end">text</text>
+  <line x1="380" y1="881" x2="660" y2="881" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="896">questao_alternativa_c</text><text class="tbadge" style="fill:#555" x="657" y="896" text-anchor="end">text</text>
+  <line x1="380" y1="902" x2="660" y2="902" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="917">questao_alternativa_d</text><text class="tbadge" style="fill:#555" x="657" y="917" text-anchor="end">text</text>
+  <line x1="380" y1="923" x2="660" y2="923" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="938">questao_letra_correta</text><text class="tbadge" style="fill:#555" x="657" y="938" text-anchor="end">char(1) A|B|C|D</text>
+  <line x1="380" y1="944" x2="660" y2="944" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="393" y="955">questao_categoria</text><text class="tbadge" style="fill:#555" x="657" y="955" text-anchor="end">varchar(50)</text>
 </g>
 
-<!-- ── AULA  y=990  h=329 ── -->
-<!-- campos: id_aula, id_curso(FK), titulo, descricao, ordem, conteudo_texto,
-             url_video, arquivo_slide, arquivo_pdf, material_complementar,
-             miniatura, duracao_minutos, status_aula, criado_em, atualizado_em -->
+<!-- ── AULA  x=40 y=940  h=349 ── -->
 <g id="t-aula">
-  <rect x="40" y="880" width="310" height="329" rx="10" fill="#1c1c26"/>
-  <rect x="40" y="880" width="310" height="329" rx="10" fill="none" stroke="#185FA5" stroke-width="1.5"/>
-  <rect x="40" y="880" width="310" height="36" rx="10" fill="#071e3a"/>
-  <rect x="40" y="904" width="310" height="12" fill="#071e3a"/>
-  <text class="tbl-title" x="195" y="902" text-anchor="middle">aula</text>
-  <line x1="40" y1="916" x2="350" y2="916" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <text class="tbl-pk"  x="53" y="931">🔑 id_aula</text><text class="tbadge t11" x="347" y="931" text-anchor="end">PK · serial</text>
-  <line x1="40" y1="937" x2="350" y2="937" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tbl-fk"  x="53" y="952">🔗 id_curso</text><text class="tbadge tnn" x="347" y="952" text-anchor="end">FK · CASCADE</text>
-  <line x1="40" y1="958" x2="350" y2="958" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="973">titulo</text><text class="tbadge" style="fill:#555" x="347" y="973" text-anchor="end">varchar(100)</text>
-  <line x1="40" y1="979" x2="350" y2="979" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="994">descricao</text><text class="tbadge" style="fill:#555" x="347" y="994" text-anchor="end">text</text>
-  <line x1="40" y1="1000" x2="350" y2="1000" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1015">ordem</text><text class="tbadge" style="fill:#555" x="347" y="1015" text-anchor="end">int</text>
-  <line x1="40" y1="1021" x2="350" y2="1021" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1036">conteudo_texto</text><text class="tbadge" style="fill:#555" x="347" y="1036" text-anchor="end">text</text>
-  <line x1="40" y1="1042" x2="350" y2="1042" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1057">url_video</text><text class="tbadge" style="fill:#555" x="347" y="1057" text-anchor="end">varchar(255)</text>
-  <line x1="40" y1="1063" x2="350" y2="1063" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1078">arquivo_slide</text><text class="tbadge" style="fill:#555" x="347" y="1078" text-anchor="end">varchar(255)</text>
-  <line x1="40" y1="1084" x2="350" y2="1084" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1099">arquivo_pdf</text><text class="tbadge" style="fill:#555" x="347" y="1099" text-anchor="end">varchar(255)</text>
-  <line x1="40" y1="1105" x2="350" y2="1105" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1120">material_complementar</text><text class="tbadge" style="fill:#555" x="347" y="1120" text-anchor="end">varchar(255)</text>
-  <line x1="40" y1="1126" x2="350" y2="1126" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1141">miniatura</text><text class="tbadge" style="fill:#555" x="347" y="1141" text-anchor="end">varchar(255)</text>
-  <line x1="40" y1="1147" x2="350" y2="1147" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1162">duracao_minutos</text><text class="tbadge" style="fill:#555" x="347" y="1162" text-anchor="end">int</text>
-  <line x1="40" y1="1168" x2="350" y2="1168" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1183">status_aula</text><text class="tbadge" style="fill:#555" x="347" y="1183" text-anchor="end">varchar(20)</text>
-  <line x1="40" y1="1189" x2="350" y2="1189" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1204">criado_em</text><text class="tbadge" style="fill:#555" x="347" y="1204" text-anchor="end">timestamp</text>
-  <line x1="40" y1="1210" x2="350" y2="1210" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
-  <text class="tf"      x="53" y="1209">atualizado_em</text><text class="tbadge" style="fill:#555" x="347" y="1209" text-anchor="end">timestamp</text>
+  <rect x="40" y="940" width="295" height="349" rx="10" fill="#1c1c26"/>
+  <rect x="40" y="940" width="295" height="349" rx="10" fill="none" stroke="#185FA5" stroke-width="1.5"/>
+  <rect x="40" y="940" width="295" height="36" rx="10" fill="#071e3a"/>
+  <rect x="40" y="964" width="295" height="12" fill="#071e3a"/>
+  <text class="tbl-title" x="187" y="962" text-anchor="middle">aula</text>
+  <line x1="40" y1="976" x2="335" y2="976" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+
+  <text class="tbl-pk"  x="53" y="991">🔑 aula_id</text><text class="tbadge t11" x="332" y="991" text-anchor="end">PK · serial</text>
+  <line x1="40" y1="997" x2="335" y2="997" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tbl-fk"  x="53" y="1012">🔗 curso_id</text><text class="tbadge tnn" x="332" y="1012" text-anchor="end">FK · CASCADE</text>
+  <line x1="40" y1="1018" x2="335" y2="1018" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1033">aula_titulo</text><text class="tbadge" style="fill:#555" x="332" y="1033" text-anchor="end">varchar(100)</text>
+  <line x1="40" y1="1039" x2="335" y2="1039" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1054">aula_descricao</text><text class="tbadge" style="fill:#555" x="332" y="1054" text-anchor="end">text</text>
+  <line x1="40" y1="1060" x2="335" y2="1060" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1075">aula_ordem</text><text class="tbadge" style="fill:#555" x="332" y="1075" text-anchor="end">int</text>
+  <line x1="40" y1="1081" x2="335" y2="1081" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1096">aula_conteudo_texto</text><text class="tbadge" style="fill:#555" x="332" y="1096" text-anchor="end">text</text>
+  <line x1="40" y1="1102" x2="335" y2="1102" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1117">aula_url_video</text><text class="tbadge" style="fill:#555" x="332" y="1117" text-anchor="end">varchar(255)</text>
+  <line x1="40" y1="1123" x2="335" y2="1123" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1138">aula_arquivo_slide</text><text class="tbadge" style="fill:#555" x="332" y="1138" text-anchor="end">varchar(255)</text>
+  <line x1="40" y1="1144" x2="335" y2="1144" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1159">aula_arquivo_pdf</text><text class="tbadge" style="fill:#555" x="332" y="1159" text-anchor="end">varchar(255)</text>
+  <line x1="40" y1="1165" x2="335" y2="1165" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1180">aula_material_complementar</text><text class="tbadge" style="fill:#555" x="332" y="1180" text-anchor="end">varchar(255)</text>
+  <line x1="40" y1="1186" x2="335" y2="1186" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1201">aula_miniatura</text><text class="tbadge" style="fill:#555" x="332" y="1201" text-anchor="end">varchar(255)</text>
+  <line x1="40" y1="1207" x2="335" y2="1207" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1222">aula_duracao_minutos</text><text class="tbadge" style="fill:#555" x="332" y="1222" text-anchor="end">int</text>
+  <line x1="40" y1="1228" x2="335" y2="1228" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1243">aula_status_aula</text><text class="tbadge" style="fill:#555" x="332" y="1243" text-anchor="end">varchar(20)</text>
+  <line x1="40" y1="1249" x2="335" y2="1249" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1264">aula_criado_em</text><text class="tbadge" style="fill:#555" x="332" y="1264" text-anchor="end">timestamp</text>
+  <line x1="40" y1="1270" x2="335" y2="1270" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <text class="tf"      x="53" y="1281">aula_atualizado_em</text><text class="tbadge" style="fill:#555" x="332" y="1281" text-anchor="end">timestamp</text>
 </g>
 
 
@@ -272,132 +271,126 @@ footer{text-align:center;margin-top:28px;font-size:12px;color:#3a3a42}
      RELACIONAMENTOS COM LABELS
      ═══════════════════════════════════════════════════════════ -->
 
-<!-- helper: pill de label -->
 <!-- 1. usuario → aluno  (1:1 herança) -->
 <g>
-  <path class="rel-line" stroke="#d4a84a" d="M 340 200 L 167 320" marker-start="url(#diam)" marker-end="url(#one)"/>
-  <rect rx="6" x="198" y="243" width="86" height="20" fill="#2a2418" stroke="#7a6030" stroke-width="1"/>
-  <text class="rlt ther" x="241" y="253">1:1 · herança</text>
+  <path class="rel-line" stroke="#d4a84a" d="M 370 170 L 172 330" marker-start="url(#diam)" marker-end="url(#one)"/>
+  <rect rx="6" x="214" y="232" width="86" height="20" fill="#2a2418" stroke="#7a6030" stroke-width="1"/>
+  <text class="rlt ther" x="257" y="242">1:1 · herança</text>
 </g>
 
 <!-- 2. usuario → instrutor  (1:1 herança) -->
 <g>
-  <path class="rel-line" stroke="#d4a84a" d="M 590 200 L 812 320" marker-start="url(#diam)" marker-end="url(#one)"/>
-  <rect rx="6" x="656" y="243" width="86" height="20" fill="#2a2418" stroke="#7a6030" stroke-width="1"/>
-  <text class="rlt ther" x="699" y="253">1:1 · herança</text>
+  <path class="rel-line" stroke="#d4a84a" d="M 635 170 L 860 330" marker-start="url(#diam)" marker-end="url(#one)"/>
+  <rect rx="6" x="690" y="232" width="86" height="20" fill="#2a2418" stroke="#7a6030" stroke-width="1"/>
+  <text class="rlt ther" x="733" y="242">1:1 · herança</text>
 </g>
 
-<!-- 3. aluno → aluno_curso (1:N) — linha vertical esquerda -->
+<!-- 3. usuario → simulado via aluno_simulado — apenas indicativo de simulado ser entidade independente -->
+<!-- simulado está abaixo de usuario, linha de simulado → aluno_simulado (1:N) -->
+
+<!-- 4. aluno → aluno_curso (1:N) — vertical -->
 <g>
-  <path class="rel-line" stroke="#c078d8" d="M 167 440 L 167 700" marker-start="url(#one)" marker-end="url(#many)"/>
-  <rect rx="5" x="143" y="562" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
-  <text class="rlt t1n" x="167" y="572">1 : N</text>
+  <path class="rel-line" stroke="#c078d8" d="M 172 450 L 172 740" marker-start="url(#one)" marker-end="url(#many)"/>
+  <rect rx="5" x="148" y="586" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
+  <text class="rlt t1n" x="172" y="596">1 : N</text>
 </g>
 
-<!-- 4. curso → aluno_curso (1:N) -->
+<!-- 5. curso → aluno_curso (1:N) — vertical -->
 <g>
-  <path class="rel-line" stroke="#c078d8" d="M 167 630 L 167 700" marker-start="url(#one)" marker-end="url(#many)"/>
-  <rect rx="5" x="143" y="658" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
-  <text class="rlt t1n" x="167" y="668">1 : N</text>
+  <path class="rel-line" stroke="#c078d8" d="M 172 650 L 172 740" marker-start="url(#one)" marker-end="url(#many)"/>
+  <rect rx="5" x="148" y="688" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
+  <text class="rlt t1n" x="172" y="698">1 : N</text>
 </g>
 
-<!-- 5. aluno → aluno_simulado (1:N) — diagonal -->
+<!-- 6. aluno → aluno_simulado (1:N) — diagonal -->
 <g>
-  <path class="rel-line" stroke="#c078d8" d="M 295 380 L 477 700" marker-start="url(#one)" marker-end="url(#many)"/>
-  <rect rx="5" x="356" y="524" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
-  <text class="rlt t1n" x="380" y="534">1 : N</text>
+  <path class="rel-line" stroke="#c078d8" d="M 305 390 L 380 570" marker-start="url(#one)" marker-end="url(#many)"/>
+  <rect rx="5" x="310" y="468" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
+  <text class="rlt t1n" x="334" y="478">1 : N</text>
 </g>
 
-<!-- 6. simulado → aluno_simulado (1:N) -->
+<!-- 7. simulado → aluno_simulado (1:N) — vertical -->
 <g>
-  <path class="rel-line" stroke="#c078d8" d="M 502 611 L 477 700" marker-start="url(#one)" marker-end="url(#many)"/>
-  <rect rx="5" x="464" y="650" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
-  <text class="rlt t1n" x="488" y="660">1 : N</text>
+  <path class="rel-line" stroke="#c078d8" d="M 510 431 L 510 530" marker-start="url(#one)" marker-end="url(#many)"/>
+  <rect rx="5" x="486" y="472" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
+  <text class="rlt t1n" x="510" y="482">1 : N</text>
 </g>
 
-<!-- 7. simulado → questao (1:N) — diagonal -->
+<!-- 8. simulado → questao (1:N) — vertical -->
 <g>
-  <path class="rel-line" stroke="#c078d8" d="M 625 555 L 820 700" marker-start="url(#one)" marker-end="url(#many)"/>
-  <rect rx="5" x="686" y="614" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
-  <text class="rlt t1n" x="710" y="624">1 : N</text>
+  <path class="rel-line" stroke="#c078d8" d="M 510 431 Q 510 600 510 740" marker-start="url(#one)" marker-end="url(#many)"/>
+  <rect rx="5" x="486" y="596" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
+  <text class="rlt t1n" x="510" y="606">1 : N</text>
 </g>
 
-<!-- 8. instrutor → veiculo (1:N) -->
+<!-- 9. instrutor → veiculo (1:N) — vertical -->
 <g>
-  <path class="rel-line" stroke="#c078d8" d="M 812 440 L 812 510" marker-start="url(#one)" marker-end="url(#many)"/>
-  <rect rx="5" x="788" y="466" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
-  <text class="rlt t1n" x="812" y="476">1 : N</text>
+  <path class="rel-line" stroke="#c078d8" d="M 860 450 L 860 530" marker-start="url(#one)" marker-end="url(#many)"/>
+  <rect rx="5" x="836" y="482" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
+  <text class="rlt t1n" x="860" y="492">1 : N</text>
 </g>
 
-<!-- 9. curso → aula (1:N) — desce pela esquerda -->
+<!-- 10. curso → aula (1:N) — curva pela esquerda -->
 <g>
-  <path class="rel-line" stroke="#c078d8" d="M 100 630 L 100 880" marker-start="url(#one)" marker-end="url(#many)"/>
-  <rect rx="5" x="76" y="748" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
-  <text class="rlt t1n" x="100" y="758">1 : N</text>
+  <path class="rel-line" stroke="#c078d8" d="M 100 650 L 100 940" marker-start="url(#one)" marker-end="url(#many)"/>
+  <rect rx="5" x="76" y="788" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
+  <text class="rlt t1n" x="100" y="798">1 : N</text>
 </g>
 
 
 <!-- ═══════════════════════════════
      LEGENDA
      ═══════════════════════════════ -->
-<g transform="translate(1010, 40)">
-  <rect rx="10" x="0" y="0" width="300" height="315" fill="#1a1a22" stroke="#2a2a35" stroke-width="1"/>
+<g transform="translate(1060, 40)">
+  <rect rx="10" x="0" y="0" width="290" height="340" fill="#1a1a22" stroke="#2a2a35" stroke-width="1"/>
   <text class="tbl-title" x="16" y="28">Legenda</text>
-  <line x1="0" y1="38" x2="300" y2="38" stroke="#2a2a35" stroke-width="1"/>
+  <line x1="0" y1="38" x2="290" y2="38" stroke="#2a2a35" stroke-width="1"/>
 
-  <!-- Tipo de campo -->
+  <!-- Campos -->
   <text style="font-size:11px;font-weight:600;fill:#888" x="16" y="58">CAMPOS</text>
   <text style="font-size:12px;fill:#f0c96a" x="16" y="78">🔑  Chave primária (PK)</text>
   <text style="font-size:12px;fill:#7eb8f7" x="16" y="98">🔗  Chave estrangeira (FK)</text>
   <text style="font-size:12px;fill:#6b6a63" x="16" y="118">UNIQUE  Valor não pode repetir</text>
   <text style="font-size:12px;fill:#6b6a63" x="16" y="138">CASCADE  Deleta filhos junto</text>
 
-  <line x1="16" y1="150" x2="284" y2="150" stroke="#2a2a35" stroke-width="1"/>
+  <line x1="16" y1="150" x2="274" y2="150" stroke="#2a2a35" stroke-width="1"/>
 
-  <!-- Tipo de relacionamento -->
+  <!-- Relacionamentos -->
   <text style="font-size:11px;font-weight:600;fill:#888" x="16" y="170">RELACIONAMENTOS</text>
 
-  <!-- 1:N -->
   <rect rx="5" x="16" y="180" width="48" height="20" fill="#2a1e2e" stroke="#6e3a7a" stroke-width="1"/>
   <text class="rlt t1n" x="40" y="190">1 : N</text>
   <text style="font-size:12px;fill:#6b6a63" x="74" y="194">Um para muitos</text>
 
-  <!-- 1:1 -->
   <rect rx="5" x="16" y="208" width="48" height="20" fill="#1e2e24" stroke="#2e6e48" stroke-width="1"/>
   <text class="rlt t11" x="40" y="218">1 : 1</text>
   <text style="font-size:12px;fill:#6b6a63" x="74" y="222">Um para um</text>
 
-  <!-- N:N -->
   <rect rx="5" x="16" y="236" width="48" height="20" fill="#232637" stroke="#4a4f8a" stroke-width="1"/>
   <text class="rlt tnn" x="40" y="246">N : N</text>
   <text style="font-size:12px;fill:#6b6a63" x="74" y="250">Muitos para muitos</text>
 
-  <!-- herança -->
   <rect rx="5" x="16" y="264" width="68" height="20" fill="#2a2418" stroke="#7a6030" stroke-width="1"/>
   <text class="rlt ther" x="50" y="274">herança</text>
   <text style="font-size:12px;fill:#6b6a63" x="94" y="278">Especialização 1:1</text>
 
-  <line x1="16" y1="292" x2="284" y2="292" stroke="#2a2a35" stroke-width="1"/>
+  <line x1="16" y1="292" x2="274" y2="292" stroke="#2a2a35" stroke-width="1"/>
 
-  <!-- Marcadores -->
-  <text style="font-size:11px;font-weight:600;fill:#888" x="16" y="310">MARCADORES NAS LINHAS</text>
-  <svg x="16" y="315" width="270" height="60">
-    <!-- barra = "um" -->
+  <text style="font-size:11px;font-weight:600;fill:#888" x="16" y="312">MARCADORES NAS LINHAS</text>
+  <svg x="16" y="316" width="260" height="60">
     <line x1="20" y1="20" x2="50" y2="20" stroke="#c078d8" stroke-width="1.5"/>
     <line x1="50" y1="14" x2="50" y2="26" stroke="#c078d8" stroke-width="2"/>
     <text style="font-size:11px;fill:#6b6a63" x="58" y="24">= lado "um"</text>
-    <!-- pata = "muitos" -->
     <line x1="20" y1="48" x2="50" y2="48" stroke="#c078d8" stroke-width="1.5"/>
     <path d="M50 48L62 42M50 48L62 48M50 48L62 54" fill="none" stroke="#c078d8" stroke-width="1.5" stroke-linecap="round"/>
     <text style="font-size:11px;fill:#6b6a63" x="70" y="52">= lado "muitos"</text>
   </svg>
 
-  <!-- tabela intermediária -->
-  <text style="font-size:11px;fill:#6b6a63" x="16" y="378">Borda tracejada = tabela intermediária (N:N)</text>
+  <text style="font-size:11px;fill:#6b6a63" x="16" y="382">Borda tracejada = tabela intermediária (N:N)</text>
 </g>
 
 </svg>
 </div>
-<footer>Sistema de Autoescola · Modelo Lógico Relacional · 10 tabelas · todos os campos</footer>
+<footer>Sistema de Autoescola · Modelo Lógico Relacional · 11 tabelas · todos os campos</footer>
 </body>
 </html>
