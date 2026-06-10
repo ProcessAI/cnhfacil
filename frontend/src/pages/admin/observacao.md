@@ -1,1 +1,0 @@
-Por duvida de como iriam preferir dispor os arquivos nas pastas criei a opcao de pasta ADMIN, tendo em vista q essas sao telas dos adminstradores e a opcao de pastas com os respectivos nomes. A q o senhor preferir é so apagar a outra.
