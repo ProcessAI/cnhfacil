@@ -1,0 +1,137 @@
+/* Fundo principal da página */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f6fa; /* Fundo levemente acinzentado da imagem */
+  font-family: 'Inter', Arial, sans-serif; /* Fonte moderna parecida com o print */
+}
+
+/* O cartão branco central */
+.login-card {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05); /* Sombra bem sutil */
+  box-sizing: border-box;
+}
+
+/* Centralizando logo e subtítulo */
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-logo {
+  max-width: 120px;
+  margin-bottom: 15px;
+}
+
+.login-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Inputs e Labels */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.input-group label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #1e293b;
+}
+
+.forgot-password {
+  font-size: 12px;
+  color: #3b82f6; /* Azul do link */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.input-group input {
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-group input::placeholder {
+  color: #94a3b8;
+}
+
+.input-group input:focus {
+  border-color: #ffc107; /* Amarelo no foco */
+}
+
+/* Mensagem de Erro */
+.erro-mensagem {
+  color: #ef4444;
+  font-size: 13px;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+/* Botão Amarelo */
+.btn-entrar {
+  width: 100%;
+  padding: 14px;
+  background-color: #ffca28; /* Amarelo da logo */
+  color: #0f172a; /* Azul escuro/preto para dar contraste */
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-entrar:hover {
+  background-color: #ffb300;
+}
+
+/* Rodapé */
+.login-footer {
+  margin-top: 30px;
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+}
+
+.login-footer p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.login-footer a {
+  color: #1e3a8a; /* Azul mais escuro do Cadastre-se */
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
