@@ -10,11 +10,10 @@ Adicionalmente, disponibiliza uma interface interativa do *Swagger* para teste o
 
 Abaixo está a organização modular do backend:
 
-text
 backend/
 ├── src/
 │   ├── config/
-│   │   └── swagger.js         # Configurações do Swagger JSDoc
+│   │   └── swagger.js            # Configurações do Swagger JSDoc
 │   ├── controllers/
 │   │   ├── authController.js     # Regras de login e registro
 │   │   ├── questionController.js # CRUD completo das questões
@@ -36,7 +35,6 @@ backend/
 ├── .env                          # Variáveis de ambiente (Porta, Segredo JWT)
 ├── .gitignore                    # Arquivos ignorados pelo Git
 └── package.json                  # Script e dependências do projeto
-
 
 ---
 
