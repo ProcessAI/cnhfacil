@@ -1,36 +1,27 @@
 # cnhfacil
-Portal para conquistar sua CNH
+# Padrão Prisma para o backend
 
-## Estrutura
+Este diretório centraliza a configuração do Prisma para o backend.
 
-```
-projeto-cnh/
-├── docs/
-│   ├── requisitos/
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── App.jsx
-│   └── package.json
-└── backend/
-    ├── src/
-    │   ├── controllers/
-    │   ├── routes/
-    │   └── models/
-    └── package.json
-```
+## Estrutura padrão
 
-## Legenda
+- `schema.prisma` - modelo do banco de dados e fonte de dados
+- `seed.ts` - script de seed para popular dados iniciais
+- `README.md` - documentação sobre uso e convenções
 
-| Pasta/Arquivo | Descrição |
-|---|---|
-| `docs/requisitos/` | Requisitos funcionais por entidade |
-| `frontend/public/` | Arquivos estáticos (favicon, imagens) |
-| `frontend/src/components/` | Componentes reutilizáveis (botões, inputs, cards) |
-| `frontend/src/pages/` | Telas completas (Login, Cadastro, Dashboard) |
-| `frontend/src/App.jsx` | Componente raiz e definição de rotas |
-| `backend/src/controllers/` | Lógica de negócio de cada rota |
-| `backend/src/routes/` | Definição dos endpoints da API |
-| `backend/src/models/` | Estrutura dos dados (Aluno, Instrutor, Aula) |
+## Como usar
+
+1. Copie `.env.example` para `.env`
+2. Ajuste `DATABASE_URL`
+3. Rode `npm install`
+4. Rode `npm run prisma:generate`
+5. Rode `npm run prisma:migrate`
+6. Rode `npm run prisma:seed`
+
+## Convenções adotadas
+
+- `prisma/schema.prisma` com `generator client` e `datasource db`
+- `@prisma/client` em `dependencies`
+- `prisma` em `devDependencies`
+- seed com `prisma/seed.ts`
+- scripts npm para `generate`, `migrate`, `studio`, `format` e `seed`
