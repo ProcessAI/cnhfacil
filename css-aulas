@@ -1,0 +1,62 @@
+/* Reutilizando as variáveis e formatações base que construímos */
+:root {
+    --bg-page: #f4f6fa; --bg-sidebar: #ffffff; --color-primary: #18337c; --color-secondary: #ffc72c;
+    --color-text-dark: #1e293b; --color-text-light: #64748b; --color-border: #e2e8f0;
+    --playlist-bg-done: #f0fdf4; --playlist-border-done: #bbf7d0; --playlist-text-done: #15803d;
+    --playlist-bg-active: #f0f4ff; --playlist-border-active: #c3d4ff;
+    --font-main: 'Inter', sans-serif; --font-heading: 'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.aulas-wrapper { font-family: var(--font-main); background-color: var(--bg-page); color: var(--color-text-dark); display: flex; height: 100vh; overflow: hidden; width: 100%; }
+
+.sidebar { width: 250px; background-color: var(--bg-sidebar); display: flex; flex-direction: column; border-right: 1px solid var(--color-border); flex-shrink: 0; }
+.logo-container { padding: 30px 20px; display: flex; align-items: center; justify-content: center; }
+.logo-container img { max-width: 100%; max-height: 45px; object-fit: contain; }
+.menu { padding: 0 15px; display: flex; flex-direction: column; gap: 5px; }
+.menu-item { display: flex; align-items: center; gap: 15px; padding: 12px 20px; border-radius: 8px; color: var(--color-text-light); font-weight: 500; cursor: pointer; transition: all 0.2s ease; text-decoration: none; }
+.menu-item.active { background-color: var(--color-primary); color: white; }
+
+.main-content { flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; }
+
+.topbar { background-color: #ffffff; height: 80px; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border); }
+.topbar-left { display: flex; align-items: center; gap: 20px; }
+.btn-back { display: flex; align-items: center; gap: 8px; color: var(--color-text-light); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 8px 12px; border-radius: 8px; background-color: #f8fafc; border: 1px solid var(--color-border); transition: all 0.2s ease; }
+.btn-back:hover { color: var(--color-primary); border-color: var(--color-primary); background-color: #f0f4ff; }
+.topbar-title { font-family: var(--font-heading); color: var(--color-primary); font-size: 1.4rem; }
+.user-profile { display: flex; align-items: center; gap: 15px; }
+.user-info { text-align: right; }
+.user-name { font-weight: 600; font-size: 0.95rem; line-height: 1.2; }
+.user-role { font-size: 0.8rem; color: var(--color-text-light); }
+.user-avatar { width: 40px; height: 40px; background-color: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-family: var(--font-heading); }
+
+/* =========================================
+   CONTEÚDO DA AULA (VÍDEO E PLAYLIST)
+   ========================================= */
+.lesson-container { padding: 30px 40px; max-width: 1500px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 30px; align-items: start; }
+
+.video-wrapper { background-color: #080c16; border-radius: 12px; aspect-ratio: 16 / 9; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; width: 100%; }
+
+.play-button-large { width: 80px; height: 80px; background-color: var(--color-secondary); color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; padding-left: 6px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.play-button-large:hover { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 199, 44, 0.4); }
+
+.video-title-overlay { position: absolute; bottom: 25px; left: 30px; color: #ffffff; font-size: 1.05rem; font-weight: 500; text-shadow: 0 2px 4px rgba(0,0,0,0.8); z-index: 10; }
+
+.playlist-card { background-color: #ffffff; border-radius: 12px; padding: 30px; border: 1px solid var(--color-border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); display: flex; flex-direction: column; height: 100%; min-height: 500px; }
+
+.playlist-header h3 { font-family: var(--font-heading); font-size: 1.15rem; color: var(--color-text-dark); margin-bottom: 20px; }
+.playlist-list { display: flex; flex-direction: column; gap: 12px; flex-grow: 1; }
+
+.playlist-item { padding: 16px 20px; border-radius: 8px; display: flex; align-items: center; gap: 15px; font-size: 0.95rem; font-weight: 500; border: 1px solid; transition: all 0.2s ease; }
+.playlist-item i { width: 18px; text-align: center; }
+
+.item-done { background-color: var(--playlist-bg-done); border-color: var(--playlist-border-done); color: var(--playlist-text-done); cursor: pointer; }
+.item-active { background-color: var(--playlist-bg-active); border-color: var(--playlist-border-active); color: var(--color-primary); cursor: pointer; }
+.item-locked { background-color: #ffffff; border-color: var(--color-border); color: #94a3b8; cursor: not-allowed; }
+.item-locked i { color: var(--color-secondary); }
+
+.btn-concluir { display: block; text-align: center; text-decoration: none; width: 100%; padding: 16px; background-color: var(--color-secondary); color: var(--color-text-dark); border: none; border-radius: 8px; font-family: var(--font-main); font-weight: 700; font-size: 0.95rem; text-transform: uppercase; cursor: pointer; transition: background-color 0.2s ease; margin-top: 25px; box-sizing: border-box; }
+.btn-concluir:hover { background-color: #eab308; }
+
+@media (max-width: 1100px) { .lesson-container { grid-template-columns: 1fr; } .playlist-card { min-height: auto; } }
