@@ -1,0 +1,135 @@
+/* =========================================
+   VARIÁVEIS DE CORES E ESTILOS GLOBAIS
+   ========================================= */
+:root {
+    --bg-page: #f4f6fa;
+    --bg-sidebar: #ffffff;
+    --color-primary: #18337c;
+    --color-secondary: #ffc72c;
+    --color-text-dark: #1e293b;
+    --color-text-light: #64748b;
+    --color-border: #e2e8f0;
+    
+    /* Cores dos Gráficos */
+    --chart-green: #10b981;
+    --chart-blue: #18337c;
+    --chart-yellow: #f59e0b;
+    --chart-red: #ef4444;
+    
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Wrapper principal do Desempenho isolando do Body */
+.desempenho-wrapper {
+    font-family: var(--font-main);
+    background-color: var(--bg-page);
+    color: var(--color-text-dark);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* =========================================
+   SIDEBAR E TOPBAR
+   ========================================= */
+.sidebar { width: 250px; background-color: var(--bg-sidebar); display: flex; flex-direction: column; border-right: 1px solid var(--color-border); flex-shrink: 0; }
+.logo-container { padding: 30px 20px; display: flex; align-items: center; justify-content: center; }
+.logo-container img { max-width: 100%; max-height: 45px; object-fit: contain; }
+.menu { padding: 0 15px; display: flex; flex-direction: column; gap: 5px; }
+.menu-item { display: flex; align-items: center; gap: 15px; padding: 12px 20px; border-radius: 8px; color: var(--color-text-light); font-weight: 500; cursor: pointer; transition: all 0.2s ease; text-decoration: none; }
+.menu-item.active { background-color: var(--color-primary); color: white; }
+.menu-item:hover:not(.active) { background-color: #f8fafc; color: var(--color-primary); }
+.menu-item.danger { color: var(--text-danger); margin-top: 20px; }
+
+.main-content { flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; }
+
+.topbar { background-color: #ffffff; height: 80px; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border); }
+.topbar-title { font-family: var(--font-heading); color: var(--color-primary); font-size: 1.4rem; }
+.user-profile { display: flex; align-items: center; gap: 15px; }
+.user-info { text-align: right; }
+.user-name { font-weight: 600; font-size: 0.95rem; line-height: 1.2; }
+.user-role { font-size: 0.8rem; color: var(--color-text-light); }
+.user-avatar { width: 40px; height: 40px; background-color: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-family: var(--font-heading); }
+
+/* =========================================
+   CONTEÚDO DO DESEMPENHO (DASHBOARD)
+   ========================================= */
+.dashboard-container { padding: 30px 40px; max-width: 1400px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 25px; }
+
+/* Linha 1: Métricas Gerais */
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+
+.metric-card {
+    background-color: #ffffff; border-radius: 12px; padding: 30px 20px;
+    text-align: center; border: 1px solid var(--color-border);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02); display: flex; flex-direction: column; gap: 10px;
+}
+
+.metric-title { font-size: 0.75rem; font-weight: 700; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.5px; }
+.metric-value { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; }
+
+.text-blue { color: var(--color-primary); }
+.text-green { color: var(--chart-green); }
+.text-yellow { color: var(--chart-yellow); }
+
+/* Linha 2: Gráficos */
+.charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+
+.chart-card {
+    background-color: #ffffff; border-radius: 12px; padding: 30px;
+    border: 1px solid var(--color-border); box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    display: flex; flex-direction: column;
+}
+
+.card-heading { font-family: var(--font-heading); font-size: 1.1rem; color: var(--color-text-dark); margin-bottom: 25px; }
+
+/* Barras de Tópicos (Esquerda) */
+.topic-list { display: flex; flex-direction: column; gap: 20px; }
+.topic-item { display: flex; flex-direction: column; gap: 8px; }
+.topic-header { display: flex; justify-content: space-between; align-items: center; }
+.topic-name { font-size: 0.9rem; font-weight: 600; color: var(--color-text-dark); }
+.topic-percent { font-size: 0.85rem; font-weight: 700; color: var(--color-text-dark); }
+
+.topic-bar-bg { width: 100%; height: 8px; background-color: #e2e8f0; border-radius: 4px; overflow: hidden; }
+.topic-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+
+.bg-green { background-color: var(--chart-green); }
+.bg-blue { background-color: var(--chart-blue); }
+.bg-yellow { background-color: var(--chart-yellow); }
+.bg-red { background-color: var(--chart-red); }
+
+/* Gráfico de Barras (Direita) */
+.bar-chart-container { flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; margin-top: 10px; }
+.chart-bars-area { display: flex; justify-content: space-around; align-items: flex-end; height: 160px; border-bottom: 1px solid var(--color-border); padding-bottom: 5px; }
+.bar-group { display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; width: 40px; }
+
+.bar {
+    width: 100%; background-color: var(--color-border); border-radius: 4px 4px 0 0;
+    position: relative; cursor: pointer; transition: all 0.3s ease;
+}
+
+.bar:hover { background-color: var(--color-secondary); }
+
+.bar:hover::after {
+    content: attr(data-score); position: absolute; top: -35px; left: 50%;
+    transform: translateX(-50%); background-color: var(--color-text-dark); color: white;
+    padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+}
+
+.bar.highlight { background-color: var(--color-primary); }
+
+.chart-labels { display: flex; justify-content: space-around; margin-top: 10px; }
+.label { font-size: 0.75rem; color: var(--color-text-light); font-weight: 500; text-align: center; width: 40px; }
+.chart-caption { text-align: center; font-size: 0.8rem; color: var(--color-text-light); margin-top: 25px; }
+
+/* Responsividade */
+@media (max-width: 1100px) { .charts-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .metrics-grid { grid-template-columns: 1fr; } }

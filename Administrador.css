@@ -1,0 +1,126 @@
+/* =========================================
+   VARIÁVEIS DE CORES E ESTILOS GLOBAIS
+   ========================================= */
+:root {
+    --bg-page: #f4f6fa;
+    --bg-sidebar: #ffffff;
+    --color-primary: #18337c;
+    --color-secondary: #ffc72c;
+    --color-text-dark: #1e293b;
+    --color-text-light: #64748b;
+    --color-border: #e2e8f0;
+    --bg-success: #e0f2e9;
+    --text-success: #198754;
+    --bg-warning: #fef3c7;
+    --text-warning: #d97706;
+    --bg-danger: #ffe5e5;
+    --text-danger: #dc3545;
+    
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.admin-wrapper {
+    font-family: var(--font-main); background-color: var(--bg-page);
+    color: var(--color-text-dark); display: flex; height: 100vh;
+    overflow: hidden; width: 100%;
+}
+
+/* =========================================
+   SIDEBAR E TOPBAR
+   ========================================= */
+.sidebar { width: 250px; background-color: var(--bg-sidebar); display: flex; flex-direction: column; border-right: 1px solid var(--color-border); flex-shrink: 0; }
+.logo-container { padding: 30px 20px; display: flex; align-items: center; justify-content: center; }
+.logo-container img { max-width: 100%; max-height: 45px; object-fit: contain; }
+.menu { padding: 0 15px; display: flex; flex-direction: column; gap: 5px; }
+.menu-item { display: flex; align-items: center; gap: 15px; padding: 12px 20px; border-radius: 8px; color: var(--color-text-light); font-weight: 500; cursor: pointer; transition: all 0.2s ease; text-decoration: none; }
+.menu-item.active { background-color: var(--color-primary); color: white; }
+.menu-item:hover:not(.active) { background-color: #f8fafc; color: var(--color-primary); }
+.menu-item.danger { color: var(--text-danger); margin-top: 20px; }
+
+.main-content { flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; }
+
+.topbar { background-color: #ffffff; height: 80px; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border); }
+.topbar-title { font-family: var(--font-heading); color: var(--color-primary); font-size: 1.4rem; }
+.user-profile { display: flex; align-items: center; gap: 15px; }
+.user-info { text-align: right; }
+.user-name { font-weight: 600; font-size: 0.95rem; line-height: 1.2; }
+.user-role { font-size: 0.8rem; color: var(--color-text-light); }
+.user-avatar { width: 40px; height: 40px; background-color: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-family: var(--font-heading); }
+
+/* =========================================
+   CONTEÚDO ADMINISTRATIVO
+   ========================================= */
+.admin-container { padding: 30px 40px; max-width: 1400px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 25px; }
+
+.admin-card { background-color: #ffffff; border-radius: 12px; padding: 30px; border: 1px solid var(--color-border); box-shadow: 0 2px 10px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.card-title { font-family: var(--font-heading); font-size: 0.9rem; font-weight: 700; color: var(--color-text-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.top-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+
+/* Lista de Informações (Card 1) */
+.info-list { display: flex; flex-direction: column; }
+.info-item { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid #f1f5f9; }
+.info-item:last-child { border-bottom: none; padding-bottom: 0; }
+.info-item:first-child { padding-top: 0; }
+.info-label { font-size: 0.9rem; color: var(--color-text-light); }
+.info-value { font-size: 0.9rem; font-weight: 600; }
+.text-blue { color: var(--color-primary); }
+.text-green { color: var(--text-success); }
+
+/* Controle de Conteúdos (Card 2) */
+.content-list { display: flex; flex-direction: column; gap: 15px; }
+.content-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #f8fafc; border: 1px solid var(--color-border); border-radius: 8px; transition: all 0.2s ease; }
+.content-item:hover { border-color: var(--color-primary); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+.content-info { display: flex; align-items: center; gap: 15px; }
+.content-icon { width: 45px; height: 45px; background-color: #e0e7ff; color: var(--color-primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.content-details { display: flex; flex-direction: column; gap: 4px; }
+.content-name { font-weight: 600; font-size: 0.95rem; color: var(--color-text-dark); }
+.content-desc { font-size: 0.8rem; color: var(--color-text-light); }
+
+.btn-outline-primary { background-color: transparent; border: 1px solid var(--color-primary); color: var(--color-primary); padding: 8px 16px; border-radius: 6px; font-family: var(--font-main); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
+.btn-outline-primary:hover { background-color: var(--color-primary); color: white; }
+
+/* Gestão de Alunos (Tabela) */
+.search-bar { display: flex; align-items: center; background-color: #f8fafc; border: 1px solid var(--color-border); border-radius: 20px; padding: 8px 15px; width: 300px; }
+.search-bar i { color: var(--color-text-light); margin-right: 10px; font-size: 0.9rem; }
+.search-bar input { border: none; background: transparent; outline: none; font-family: var(--font-main); font-size: 0.85rem; color: var(--color-text-dark); width: 100%; }
+
+.table-responsive { overflow-x: auto; margin-top: 10px; }
+.admin-table { width: 100%; border-collapse: collapse; text-align: left; }
+.admin-table th { font-size: 0.75rem; font-weight: 700; color: var(--color-text-light); text-transform: uppercase; letter-spacing: 0.5px; padding-bottom: 15px; border-bottom: 1px solid var(--color-border); }
+.admin-table td { padding: 15px 0; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+.admin-table tr:last-child td { border-bottom: none; padding-bottom: 0; }
+
+.student-cell { display: flex; align-items: center; gap: 12px; }
+.student-avatar { width: 35px; height: 35px; background-color: #f1f5f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem; font-family: var(--font-heading); }
+.student-info { display: flex; flex-direction: column; gap: 3px; }
+.student-name { font-weight: 600; font-size: 0.9rem; color: var(--color-text-dark); }
+.student-doc { font-size: 0.75rem; color: var(--color-text-light); }
+.category-text { font-size: 0.85rem; color: var(--color-text-light); font-weight: 500; }
+
+.progress-cell { display: flex; align-items: center; gap: 10px; }
+.progress-bar-bg { width: 80px; height: 6px; background-color: #e2e8f0; border-radius: 3px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background-color: var(--color-primary); border-radius: 3px; }
+.progress-text { font-size: 0.85rem; font-weight: 600; color: var(--color-text-dark); min-width: 35px; }
+
+.vehicle-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.vehicle-car { background-color: #e0f2fe; color: #0284c7; }
+.vehicle-moto { background-color: #fef3c7; color: #d97706; }
+.vehicle-none { color: #94a3b8; font-style: italic; font-size: 0.85rem; }
+
+.status-badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; display: inline-block; }
+.status-active { background-color: var(--bg-success); color: var(--text-success); }
+.status-pending { background-color: var(--bg-warning); color: var(--text-warning); }
+
+.btn-icon { background: transparent; border: 1px solid var(--color-border); color: var(--color-text-light); width: 32px; height: 32px; border-radius: 6px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
+.btn-icon:hover { border-color: var(--color-primary); color: var(--color-primary); background-color: #f8fafc; }
+
+@media (max-width: 1100px) {
+    .top-cards-grid { grid-template-columns: 1fr; }
+    .card-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .search-bar { width: 100%; }
+}
