@@ -1,7 +1,10 @@
+import alunoRoutes from './routes/alunoRoutes';
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import usuarioRoutes from './routes/usuarioRoutes'
+import express from 'express';
+
 
 dotenv.config()
 
