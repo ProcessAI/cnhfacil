@@ -1,121 +1,223 @@
 # CNHFácil
 
-Projeto CNHFácil com estrutura monorepo leve, contendo backend em Node.js/Express e frontend em React/Vite.
+Plataforma de preparação para o exame teórico da CNH. Alunos assistem vídeo-aulas, fazem simulados por tema e acompanham seu desempenho em tempo real. Instrutores são cadastrados pela própria plataforma e vinculados a veículos da frota.
+
+## Stack
+
+| Camada | Tecnologia |
+|--------|-----------|
+| Backend | Node.js 18+ · Express 4 · Prisma ORM |
+| Banco | PostgreSQL 14+ |
+| Frontend | React 18 · Vite 5 · React Router 6 |
+| Auth | JWT (Bearer token, 8 h) · bcryptjs |
+| Docs | Swagger UI (`/api-docs`) |
 
 ## Estrutura do repositório
 
-- `backend/` - API REST com autenticação, simulados, questões, perfil, aulas e veículos.
-- `frontend/` - Aplicação web em React usando Vite.
-- `CREDENTIALS.md` - Credenciais de teste e exemplos de `.env`.
+```
+cnhfacil/
+├── backend/
+│   ├── prisma/
+│   │   ├── schema.prisma        # Modelos do banco
+│   │   ├── seed.js              # Dados iniciais (usuários, cursos, questões)
+│   │   └── migrations/          # Histórico de migrations
+│   └── src/
+│       ├── controllers/         # Lógica de negócio
+│       ├── routes/              # Definição dos endpoints
+│       ├── middlewares/         # Verificação de token JWT
+│       ├── dadosMockados.js     # Fallback quando banco está vazio
+│       └── index.js             # Entrada do servidor
+└── frontend/
+    └── src/
+        ├── app/                 # App.jsx + rotas
+        ├── components/          # PrivateRoute, Topbar
+        ├── context/             # AuthContext (estado de autenticação)
+        ├── layouts/             # MainLayout (sidebar + outlet)
+        ├── pages/               # Uma pasta por tela
+        └── services/api.js      # Cliente Axios com interceptores
+```
 
 ## Pré-requisitos
 
-- Node.js 16+ instalado
-- PostgreSQL instalado e rodando
-- Git para versionamento
+- **Node.js** 18 ou superior
+- **PostgreSQL** 14 ou superior rodando localmente
+- **Git**
 
-## Configuração
+## Configuração rápida
 
-### 1. Backend
-
-1. Entre na pasta do backend:
-   ```bash
-   cd backend
-   ```
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-3. Configure o arquivo `.env` com suas credenciais do banco de dados e JWT:
-   ```env
-   DATABASE_URL="postgresql://usuario:senha@localhost:5432/cnhfacil"
-   PORT=3000
-   JWT_SECRET="sua_chave_secreta"
-   ```
-4. Gere o cliente Prisma:
-   ```bash
-   npm run prisma:generate
-   ```
-5. Configure o banco e popule os dados:
-
-   **Em uma nova máquina (primeira vez):**
-   ```bash
-   npm run prisma:deploy
-   ```
-   Esse comando aplica as migrations existentes e já executa o seed automaticamente (cria as tabelas e insere usuários, questões, cursos e aulas).
-
-   **Durante o desenvolvimento (para criar novas migrations):**
-   ```bash
-   npm run prisma:migrate
-   npm run prisma:seed
-   ```
-6. Inicie o backend:
-   ```bash
-   npm run dev
-   ```
-
-### 2. Frontend
-
-1. Entre na pasta do frontend:
-   ```bash
-   cd ../frontend
-   ```
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-3. Configure o arquivo `.env` com a URL da API, se necessário:
-   ```env
-   VITE_API_URL=http://localhost:3000/api
-   ```
-4. Inicie o frontend:
-   ```bash
-   npm run dev
-   ```
-
-## O que o seed carrega
-
-Após `npm run prisma:seed` (executado na pasta `backend/`), o banco conterá:
-
-| Categoria | Dados |
-|---|---|
-| Usuários | `admin@cnhfacil.com` (senha: `admin123`) e `aluno@cnhfacil.com` (senha: `aluno123`) |
-| Simulados | 5 módulos temáticos com 10 questões cada (50 no total) |
-| Cursos | 5 cursos teóricos com aulas em vídeo e texto |
-
-**Cursos e aulas:**
-- **Legislação de Trânsito** — 5 aulas (1 vídeo + 4 textos)
-- **Direção Defensiva** — 5 aulas (1 vídeo + 4 textos)
-- **Noções de Mecânica** — 4 aulas (1 vídeo + 3 textos)
-- **Meio Ambiente e Cidadania** — 4 aulas (1 vídeo + 3 textos)
-- **Primeiros Socorros** — 4 aulas (1 vídeo + 3 textos)
-
-A primeira aula de cada curso exibe um vídeo do YouTube incorporado; as demais apresentam conteúdo teórico formatado diretamente na plataforma.
-
-## Rotas principais
-
-- Backend: `http://localhost:3000`
-- Frontend: `http://localhost:5173`
-
-## Notas importantes
-
-- Não versionar arquivos `.env` reais.
-- Caso a porta `3000` esteja em uso, altere em `backend/.env`.
-- O arquivo `CREDENTIALS.md` contém credenciais de teste que podem ser usadas após o seed do banco.
-
-## GitHub
-
-Para preparar o repositório local antes de subir para o GitHub:
+### 1. Clone o repositório
 
 ```bash
-git init
-git add .
-git commit -m "Inicializa repositório CNHFácil"
+git clone https://github.com/ProcessAI/cnhfacil.git
+cd cnhfacil
 ```
 
-Depois, adicione o remoto e envie para o GitHub:
+### 2. Configure o backend
 
 ```bash
-git remote add origin <URL_DO_REPOSITORIO>
-git push -u origin main
+cd backend
+
+# Instale as dependências
+npm install
+
+# Copie o arquivo de variáveis de ambiente e preencha com suas credenciais
+cp .env.example .env
 ```
+
+Edite `backend/.env`:
+
+```env
+DATABASE_URL="postgresql://postgres:SUA_SENHA@localhost:5432/cnhfacil"
+PORT=3000
+JWT_SECRET="uma_chave_longa_e_aleatoria"
+NODE_ENV=development
+```
+
+```bash
+# Gere o cliente Prisma
+npm run prisma:generate
+
+# Aplique as migrations e popule o banco (primeira vez)
+npm run prisma:deploy
+
+# Inicie o servidor em modo desenvolvimento
+npm run dev
+```
+
+Backend disponível em `http://localhost:3000`  
+Documentação Swagger em `http://localhost:3000/api-docs`
+
+### 3. Configure o frontend
+
+```bash
+cd ../frontend
+
+# Instale as dependências
+npm install
+
+# Copie o arquivo de variáveis de ambiente (o valor padrão já funciona localmente)
+cp .env.example .env
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+```
+
+Frontend disponível em `http://localhost:5173`
+
+## Usuários de teste (criados pelo seed)
+
+| Perfil | E-mail | Senha |
+|--------|--------|-------|
+| Admin | `admin@cnhfacil.com` | `admin123` |
+| Aluno | `aluno@cnhfacil.com` | `aluno123` |
+
+> Instrutores são cadastrados pela tela de Cadastro selecionando "Sou Instrutor".
+
+## Conteúdo inicial do banco (seed)
+
+- **5 cursos teóricos** com aulas em vídeo e texto:
+  - Legislação de Trânsito (5 aulas)
+  - Direção Defensiva (5 aulas)
+  - Noções de Mecânica (4 aulas)
+  - Meio Ambiente e Cidadania (4 aulas)
+  - Primeiros Socorros (4 aulas)
+- **50 questões** distribuídas em 5 módulos temáticos de simulado
+
+## Endpoints da API
+
+### Autenticação
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| POST | `/api/auth/login` | Login — retorna token JWT e dados do usuário |
+| POST | `/api/auth/registro` | Cadastro de aluno ou instrutor |
+
+### Perfil e Dashboard
+| Método | Rota | Auth | Descrição |
+|--------|------|------|-----------|
+| GET | `/api/perfil` | ✔ | Dados do perfil autenticado |
+| PUT | `/api/perfil` | ✔ | Atualiza nome, e-mail, telefone ou senha |
+| GET | `/api/perfil/dashboard` | ✔ | Métricas de progresso do aluno |
+| GET | `/api/desempenho` | ✔ | Histórico de simulados e desempenho por matéria |
+
+### Cursos e Aulas
+| Método | Rota | Auth | Descrição |
+|--------|------|------|-----------|
+| GET | `/api/aulas/cursos` | ✔ | Lista cursos com progresso do aluno |
+| GET | `/api/aulas/curso/:id` | ✔ | Aulas de um curso com status (done/available/locked) |
+| POST | `/api/aulas/:id/concluir` | ✔ | Marca aula como concluída |
+
+### Simulados
+| Método | Rota | Auth | Descrição |
+|--------|------|------|-----------|
+| GET | `/api/simulados` | — | Lista simulados disponíveis |
+| POST | `/api/simulados/iniciar` | — | Gera simulado (tipo: geral/desafio/materia) |
+| POST | `/api/simulados/finalizar` | — | Corrige respostas e persiste resultado |
+
+### Admin
+| Método | Rota | Auth | Descrição |
+|--------|------|------|-----------|
+| GET | `/api/admin/alunos` | ✔ | Lista todos os alunos com progresso |
+| GET | `/api/admin/stats` | ✔ | Total de questões, alunos e data de atualização |
+
+### Outros
+| Método | Rota | Auth | Descrição |
+|--------|------|------|-----------|
+| GET | `/api/questoes` | — | Lista questões (filtra por `?tema=`) |
+| GET | `/api/instrutores` | ✔ | Lista instrutores cadastrados |
+| GET | `/api/veiculos` | ✔ | Lista veículos da frota |
+
+## Scripts disponíveis
+
+### Backend (`cd backend`)
+
+| Comando | O que faz |
+|---------|-----------|
+| `npm run dev` | Inicia com nodemon (hot reload) |
+| `npm start` | Inicia em modo produção |
+| `npm run prisma:generate` | Regenera o cliente Prisma após mudanças no schema |
+| `npm run prisma:migrate` | Cria nova migration (desenvolvimento) |
+| `npm run prisma:deploy` | Aplica migrations + seed (primeira vez / CI) |
+| `npm run prisma:seed` | Reexecuta apenas o seed |
+
+### Frontend (`cd frontend`)
+
+| Comando | O que faz |
+|---------|-----------|
+| `npm run dev` | Inicia servidor de desenvolvimento (Vite) |
+| `npm run build` | Gera build de produção em `dist/` |
+| `npm run preview` | Serve o build localmente para testar |
+
+## Variáveis de ambiente
+
+Copie os arquivos `.env.example` e preencha conforme seu ambiente. **Nunca versione o `.env` real.**
+
+| Arquivo | Variável | Descrição |
+|---------|----------|-----------|
+| `backend/.env` | `DATABASE_URL` | String de conexão PostgreSQL |
+| `backend/.env` | `PORT` | Porta do servidor (padrão: 3000) |
+| `backend/.env` | `JWT_SECRET` | Chave para assinar tokens JWT |
+| `backend/.env` | `NODE_ENV` | `development` ou `production` |
+| `frontend/.env` | `VITE_API_URL` | URL base da API (padrão: `http://localhost:3000/api`) |
+
+## Troubleshooting
+
+**`Cannot connect to database`**  
+Verifique se o PostgreSQL está rodando e se `DATABASE_URL` está correto no `backend/.env`.
+
+**`Port 3000 already in use`**  
+Troque o valor de `PORT` no `backend/.env` e ajuste `VITE_API_URL` no `frontend/.env`.
+
+**`prisma generate` falhou**  
+Certifique-se de estar dentro da pasta `backend/` e que `npm install` foi executado.
+
+**Tela de Admin não aparece no menu**  
+O link Admin só aparece para usuários com `usuario_nivel_acesso = 'admin'`. Use as credenciais de admin do seed ou atualize o campo diretamente no banco.
+
+## Contribuindo
+
+Este projeto usa um fluxo baseado em branches e Pull Requests:
+
+1. Crie um branch a partir do `main`: `git checkout -b minha-feature`
+2. Faça commits com mensagens claras
+3. Abra um PR para `main` descrevendo o que foi alterado
+4. Aguarde revisão antes do merge
